@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Card</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #2b2b2b; /* Fondo gris oscuro base */
+            overflow: hidden;
+        }
+
+        /* Gradiente cálido difuminado */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #2b2b2b, #ff5722, #ffc107); /* De gris oscuro a naranja y amarillo */
+            filter: blur(50px); /* Efecto difuminado */
+            opacity: 0.7; /* Suaviza la intensidad */
+            z-index: -1;
+        }
+
+        /* Capa de ruido */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5; /* Baja opacidad para no distraer */
+            background: url('image1.jpg'); 
+            z-index: -1;
+            mix-blend-mode: overlay; /* Integra el ruido con el gradiente */
+        }
+
+        .card {
+            background: rgba(43, 43, 43, 0.5); /* Gris oscuro con transparencia */
+            
+            border-radius: 20px;
+            padding: 2rem;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.552);
+            backdrop-filter: blur(10px); /* Efecto de vidrio esmerilado */
+            -webkit-backdrop-filter: blur(10px); /* Compatibilidad con navegadores WebKit */
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 1.5rem;
+            border: 4px solid #ff5722; /* Borde naranja cálido */
+            transition: border-color 0.3s ease;
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .name {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffffff; /* Blanco para contraste */
+            margin-bottom: 0.3rem;
+        }
+
+        .nickname {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #ffcc80c3; /* Tono cálido para el apodo */
+            margin-bottom: 0.5rem;
+        }
+
+        .description {
+            font-size: 1rem;
+            color: #cccccc; /* Gris claro para contraste */
+            margin-bottom: 1.5rem;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ff5722, #ffc107); /* Gradiente cálido para botones */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .social-button:hover {
+            transform: scale(1.2);
+            background: linear-gradient(135deg, #ffc107, #ff5722); /* Gradiente invertido al hover */
+        }
+
+        .social-button i {
+            font-size: 1.5rem;
+        }
+
+        /* Responsividad */
+        @media (max-width: 480px) {
+            .card {
+                padding: 1.5rem;
+                width: 95%;
+            }
+
+            .name {
+                font-size: 1.5rem;
+            }
+
+            .nickname {
+                font-size: 1rem;
+            }
+
+            .description {
+                font-size: 0.9rem;
+            }
+
+            .photo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .social-button {
+                width: 45px;
+                height: 45px;
+            }
+
+            .social-button i {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="photo">
+            <img src="picture.jpg" alt="Foto de perfil">
+        </div>
+        <h1 class="name">Karla Ansatuña</h1>
+        <p class="nickname">Kale</p>
+        <p class="description">Illustrator | UI designer | Character designer | Programmer</p>
+        <div class="social-buttons">
+            <a href="https://www.linkedin.com/in/karla-ansatuna/" target="_blank" class="social-button" title="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://cereallstuff.wixsite.com/cereal-s-portfolio" target="_blank" class="social-button" title="Portafolio">
+                <i class="fas fa-briefcase"></i>
+            </a>
+            <a href="https://www.instagram.com/cereall.uio/" target="_blank" class="social-button" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://cerealess.itch.io/" target="_blank" class="social-button" title="Itch.io">
+                <i class="fas fa-gamepad"></i>
+            </a>
+            <a href="mailto:kansatunauemee@gmail.com" class="social-button" title="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
